@@ -13,6 +13,7 @@
 		C0240F72255A2BB5006B4D85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0240F70255A2BB5006B4D85 /* Main.storyboard */; };
 		C0240F74255A2BBC006B4D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0240F73255A2BBC006B4D85 /* Assets.xcassets */; };
 		C0240F77255A2BBC006B4D85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0240F75255A2BBC006B4D85 /* LaunchScreen.storyboard */; };
+		C0240F84255A30CD006B4D85 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0240F83255A30CD006B4D85 /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C0240F73255A2BBC006B4D85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0240F76255A2BBC006B4D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0240F78255A2BBC006B4D85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0240F83255A30CD006B4D85 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,8 @@
 		C0240F69255A2BB5006B4D85 /* Anco */ = {
 			isa = PBXGroup;
 			children = (
+				C0240F82255A303A006B4D85 /* Controllers */,
+				C0240F81255A302B006B4D85 /* Storyboards */,
 				C0240F6A255A2BB5006B4D85 /* AppDelegate.swift */,
 				C0240F6C255A2BB5006B4D85 /* SceneDelegate.swift */,
 				C0240F6E255A2BB5006B4D85 /* ViewController.swift */,
@@ -65,6 +69,21 @@
 				C0240F78255A2BBC006B4D85 /* Info.plist */,
 			);
 			path = Anco;
+			sourceTree = "<group>";
+		};
+		C0240F81255A302B006B4D85 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C0240F83255A30CD006B4D85 /* Register.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C0240F82255A303A006B4D85 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +146,7 @@
 				C0240F77255A2BBC006B4D85 /* LaunchScreen.storyboard in Resources */,
 				C0240F74255A2BBC006B4D85 /* Assets.xcassets in Resources */,
 				C0240F72255A2BB5006B4D85 /* Main.storyboard in Resources */,
+				C0240F84255A30CD006B4D85 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HR7PYGPB86;
 				INFOPLIST_FILE = Anco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.obashun22.Anco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HR7PYGPB86;
 				INFOPLIST_FILE = Anco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.obashun22.Anco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
