@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Anco-->
         <scene sceneID="Qas-W2-CuM">
             <objects>
                 <viewController id="Fk6-h0-MYM" customClass="ViewController" customModule="Anco" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,16 +52,19 @@
                             <constraint firstItem="6q2-LS-JNc" firstAttribute="centerX" secondItem="jpe-s3-A4V" secondAttribute="centerX" id="yD8-Nm-zTT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mNu-ya-FhJ"/>
+                    <navigationItem key="navigationItem" title="Anco" id="mNu-ya-FhJ">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="aee-BY-5bo"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="scc-wK-mMU" kind="show" id="NNk-VT-DW1"/>
+                        <segue destination="L1a-wG-wml" kind="show" id="krc-HW-7Di"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJU-ou-eoo" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Anco-->
         <scene sceneID="bFh-DU-OkW">
             <objects>
                 <viewController id="scc-wK-mMU" sceneMemberID="viewController">
@@ -76,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Md1-qA-eY3"/>
                                     <constraint firstAttribute="width" constant="300" id="hoe-8x-yS2"/>
                                 </constraints>
-                                <state key="normal" title="グループを作成">
+                                <state key="normal" title="決定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -116,7 +119,7 @@
                             <constraint firstItem="40E-QF-Ph8" firstAttribute="leading" secondItem="TFk-PM-kwx" secondAttribute="leading" constant="37" id="mwU-aJ-tfY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tz5-RE-xLM">
+                    <navigationItem key="navigationItem" title="Anco" id="tz5-RE-xLM">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="IPf-pO-zui"/>
                     </navigationItem>
                     <connections>
@@ -125,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPu-aH-YCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969.5652173913045" y="77.678571428571431"/>
+            <point key="canvasLocation" x="2035" y="-297"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e5f-U4-HhD">
@@ -145,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Anco-->
         <scene sceneID="Qq3-9C-uhw">
             <objects>
                 <viewController id="bdF-gZ-JMP" sceneMemberID="viewController">
@@ -160,7 +163,7 @@
                                     <constraint firstAttribute="height" constant="50" id="0zG-Uu-U2i"/>
                                     <constraint firstAttribute="width" constant="300" id="Nrj-Ju-Ejb"/>
                                 </constraints>
-                                <state key="normal" title="グループを作成">
+                                <state key="normal" title="決定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -200,15 +203,149 @@
                             <constraint firstItem="PX7-Ls-TWz" firstAttribute="top" secondItem="GGd-SP-oq8" secondAttribute="bottom" constant="10" id="tdJ-vb-czv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Yac-6l-9tE">
+                    <navigationItem key="navigationItem" title="Anco" id="Yac-6l-9tE">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="arj-dy-sOZ"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vRV-fn-oBb" kind="show" id="tqV-m0-9VT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9i-l4-39e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2913" y="78"/>
+            <point key="canvasLocation" x="2977" y="-297"/>
+        </scene>
+        <!--Anco-->
+        <scene sceneID="YOf-xu-1pu">
+            <objects>
+                <viewController id="L1a-wG-wml" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eWN-vM-1Wm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="678-vN-40K">
+                                <rect key="frame" x="57" y="752" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TEu-nj-XCa"/>
+                                    <constraint firstAttribute="width" constant="300" id="tFr-HM-mi4"/>
+                                </constraints>
+                                <state key="normal" title="グループに参加">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="18e-K9-NYx">
+                                <rect key="frame" x="37" y="383" width="340" height="130"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="グループIDを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yE3-NW-lmF">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6Ke-kK-f4z"/>
+                                            <constraint firstAttribute="width" constant="340" id="G8r-JY-HfG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="グループIDを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raw-fD-90Z">
+                                        <rect key="frame" x="0.0" y="90" width="340" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="fZo-HS-Iuc"/>
+                                            <constraint firstAttribute="width" constant="340" id="vMa-Af-BMT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTW-bC-eDS">
+                                <rect key="frame" x="67" y="693" width="281" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">グループ作成者が設定した
+グループIDとパスワードを入力してください</string>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5NZ-yl-Z8q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="18e-K9-NYx" firstAttribute="centerX" secondItem="eWN-vM-1Wm" secondAttribute="centerX" id="Xnp-Ds-v0W"/>
+                            <constraint firstItem="18e-K9-NYx" firstAttribute="centerY" secondItem="eWN-vM-1Wm" secondAttribute="centerY" id="lFr-rv-xa3"/>
+                            <constraint firstItem="678-vN-40K" firstAttribute="centerX" secondItem="eWN-vM-1Wm" secondAttribute="centerX" id="wrp-Gh-PpV"/>
+                            <constraint firstItem="5NZ-yl-Z8q" firstAttribute="bottom" secondItem="678-vN-40K" secondAttribute="bottom" constant="60" id="zQO-NM-uZS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Anco" id="sDm-Hc-Q41">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="F1m-Ln-ZcO"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="vRV-fn-oBb" kind="show" id="MiM-nx-I4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfV-1c-ibG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035" y="455"/>
+        </scene>
+        <!--Anco-->
+        <scene sceneID="gMh-q4-4dq">
+            <objects>
+                <viewController id="vRV-fn-oBb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Xp-tM-uhZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSo-5U-tO9">
+                                <rect key="frame" x="57" y="752" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="69t-C0-eJA"/>
+                                    <constraint firstAttribute="height" constant="50" id="j1S-q8-EAr"/>
+                                </constraints>
+                                <state key="normal" title="決定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="名前を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3r-q2-YGL">
+                                <rect key="frame" x="37" y="398" width="340" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="Amg-PG-L2h"/>
+                                    <constraint firstAttribute="height" constant="40" id="ukB-7R-ffm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グループに参加する方にパスワードを共有してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWw-ES-rJi">
+                                <rect key="frame" x="53.5" y="717" width="307" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="x25-HE-CXX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GWw-ES-rJi" firstAttribute="centerX" secondItem="2Xp-tM-uhZ" secondAttribute="centerX" id="14s-Cz-zTB"/>
+                            <constraint firstItem="F3r-q2-YGL" firstAttribute="leading" secondItem="x25-HE-CXX" secondAttribute="leading" constant="37" id="1YV-WZ-eLI"/>
+                            <constraint firstItem="x25-HE-CXX" firstAttribute="bottom" secondItem="gSo-5U-tO9" secondAttribute="bottom" constant="60" id="2c7-zI-pxp"/>
+                            <constraint firstItem="gSo-5U-tO9" firstAttribute="top" secondItem="GWw-ES-rJi" secondAttribute="bottom" constant="20" id="FOI-1C-WrU"/>
+                            <constraint firstItem="gSo-5U-tO9" firstAttribute="centerX" secondItem="2Xp-tM-uhZ" secondAttribute="centerX" id="Lzf-dZ-bJl"/>
+                            <constraint firstItem="F3r-q2-YGL" firstAttribute="centerY" secondItem="2Xp-tM-uhZ" secondAttribute="centerY" constant="-30" id="nUl-bs-Axh"/>
+                            <constraint firstItem="F3r-q2-YGL" firstAttribute="centerX" secondItem="2Xp-tM-uhZ" secondAttribute="centerX" id="q0G-lb-YC7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Anco" id="eJG-lm-DVQ">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="743-tF-si0"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Be-Y7-OVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3872" y="78"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tqV-m0-9VT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
