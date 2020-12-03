@@ -19,7 +19,6 @@ class ShareViewController: UIViewController {
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
     }
-    
 }
 
 extension ShareViewController: UITableViewDelegate, UITableViewDataSource {
