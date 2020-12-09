@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pxs-9r-94U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pxs-9r-94U">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,7 +33,7 @@
                                                     <imageReference key="image" image="plus" renderingMode="template"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedIncreaseFloor:" destination="hK2-C9-bfU" eventType="touchUpInside" id="C7c-rW-k1i"/>
+                                                    <action selector="tappedIncreaseDecimal:" destination="hK2-C9-bfU" eventType="touchUpInside" id="zXM-yO-jSD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WP1-GM-19Q">
@@ -45,14 +45,14 @@
                                                     <imageReference key="image" image="plus" renderingMode="template"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedIncreaseInt:" destination="hK2-C9-bfU" eventType="touchUpInside" id="bUI-Ry-pYs"/>
+                                                    <action selector="tappedIncreaseFirst:" destination="hK2-C9-bfU" eventType="touchUpInside" id="q1u-h8-k7L"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9Ts-g6-XTi"/>
-                                            <constraint firstAttribute="width" constant="200" id="uLi-Xu-U1v"/>
+                                            <constraint firstAttribute="width" constant="200" id="ZTu-sQ-8kY"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="fK1-aX-gnR">
@@ -125,7 +125,7 @@
                                                     <imageReference key="image" image="minus" renderingMode="template"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedDecreaseInt:" destination="hK2-C9-bfU" eventType="touchUpInside" id="lHZ-ha-Eit"/>
+                                                    <action selector="tappedDecreaseFirst:" destination="hK2-C9-bfU" eventType="touchUpInside" id="jgW-qJ-k7U"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajr-Jp-nM7">
@@ -137,7 +137,7 @@
                                                     <imageReference key="image" image="minus" renderingMode="template"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedDecreaseFloor:" destination="hK2-C9-bfU" eventType="touchUpInside" id="1Ia-Bz-Del"/>
+                                                    <action selector="tappedDecreaseDecimal:" destination="hK2-C9-bfU" eventType="touchUpInside" id="cmS-7h-36K"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -173,28 +173,28 @@
                             <constraint firstItem="up1-bX-ygi" firstAttribute="bottom" secondItem="isF-fE-mQ7" secondAttribute="bottom" constant="40" id="qsb-EV-Y2E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Anco" id="TJv-hv-k3D">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="JvE-ai-rZl">
-                            <color key="tintColor" red="0.59253436329999998" green="0.41757762430000001" blue="0.64316219090000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Anco" id="TJv-hv-k3D"/>
                     <connections>
                         <outlet property="addButton" destination="isF-fE-mQ7" id="WfO-3o-KkG"/>
-                        <outlet property="decimalTextField" destination="BBQ-Cu-2kb" id="AaE-9H-2Tg"/>
+                        <outlet property="decimalLabel" destination="BBQ-Cu-2kb" id="lQU-oK-xFH"/>
+                        <outlet property="decreaseDecimalButton" destination="Ajr-Jp-nM7" id="jD8-uu-7GK"/>
+                        <outlet property="decreaseFirstButton" destination="dY0-MB-uS5" id="4hs-gt-ukl"/>
+                        <outlet property="firstPlaceLabel" destination="ZYA-dP-sV4" id="ENq-CY-5Vp"/>
                         <outlet property="floorView" destination="hNs-YR-esL" id="6n5-p2-8X6"/>
+                        <outlet property="increaseDecimalButton" destination="uEF-IP-aGz" id="bWM-pm-YDn"/>
+                        <outlet property="increaseFirstButton" destination="WP1-GM-19Q" id="mpk-L2-A06"/>
                         <outlet property="integerView" destination="Nxe-Ou-B2H" id="Y06-Qb-1tX"/>
-                        <outlet property="onesPlaceTextField" destination="ZYA-dP-sV4" id="YgA-eU-eZ8"/>
-                        <outlet property="tensPlaceTextField" destination="8iv-vv-2dA" id="6V1-OA-Yf2"/>
+                        <outlet property="tensPlaceLabel" destination="8iv-vv-2dA" id="5oS-n1-zdN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPR-X3-Mpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2057.971014492754" y="-271.20535714285711"/>
         </scene>
-        <!--共有履歴-->
+        <!--記録-->
         <scene sceneID="cTT-DG-hju">
             <objects>
-                <viewController id="2NH-as-t4Z" customClass="ShareViewController" customModule="Anco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2NH-as-t4Z" customClass="RecordViewController" customModule="Anco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bRg-qH-9EJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,11 +203,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="70" id="pSz-UO-Fkk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="70" id="pSz-UO-Fkk" customClass="RecordTableViewCell" customModule="Anco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pSz-UO-Fkk" id="nuo-XY-fDb">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUY-VA-Cdy">
@@ -216,20 +216,31 @@
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tht-Uz-fcV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tht-Uz-fcV">
                                                     <rect key="frame" x="71" y="19" width="19" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36.4" placeholder="36.6" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqd-Dh-zDl">
+                                                    <rect key="frame" x="346" y="21" width="48" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uUY-VA-Cdy" firstAttribute="centerY" secondItem="nuo-XY-fDb" secondAttribute="centerY" constant="-7" id="2jP-nW-9Cg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wqd-Dh-zDl" secondAttribute="trailing" id="AZf-hw-fTQ"/>
                                                 <constraint firstItem="uUY-VA-Cdy" firstAttribute="leading" secondItem="nuo-XY-fDb" secondAttribute="leadingMargin" id="Cip-fG-fyJ"/>
+                                                <constraint firstItem="Wqd-Dh-zDl" firstAttribute="centerY" secondItem="nuo-XY-fDb" secondAttribute="centerY" id="JaY-Y9-byb"/>
                                                 <constraint firstItem="uUY-VA-Cdy" firstAttribute="bottomMargin" secondItem="tht-Uz-fcV" secondAttribute="bottom" id="Kn6-Rc-1iD"/>
                                                 <constraint firstItem="tht-Uz-fcV" firstAttribute="leading" secondItem="uUY-VA-Cdy" secondAttribute="trailing" constant="14" id="YU3-cc-YpF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="uUY-VA-Cdy" id="6N8-pr-9BJ"/>
+                                            <outlet property="tempTextField" destination="Wqd-Dh-zDl" id="BQZ-jO-S24"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -243,11 +254,8 @@
                             <constraint firstItem="TqI-kj-x5j" firstAttribute="trailing" secondItem="2uU-AX-1Km" secondAttribute="trailing" id="qEZ-HX-ujm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="共有履歴" id="VNU-vu-yM2">
+                    <navigationItem key="navigationItem" title="記録" id="VNU-vu-yM2">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="bjh-Qg-iYC"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="Quy-U6-JhE">
-                            <color key="tintColor" red="0.59253436329999998" green="0.41757762430000001" blue="0.64316219090000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateTableView" destination="TqI-kj-x5j" id="isc-pG-kpV"/>
@@ -366,11 +374,7 @@
                             <constraint firstItem="Utm-nt-vEm" firstAttribute="trailing" secondItem="aHc-Yz-MoO" secondAttribute="trailing" id="k3j-4c-9Vo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="共有履歴" id="vLj-hV-cmb">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="LcS-XS-CCS">
-                            <color key="tintColor" red="0.59253436329999998" green="0.41757762430000001" blue="0.64316219090000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="共有履歴" id="vLj-hV-cmb"/>
                     <connections>
                         <outlet property="membersTableView" destination="Utm-nt-vEm" id="ByV-fO-aJS"/>
                     </connections>
@@ -381,7 +385,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="minus" width="64" height="64"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="plus" width="64" height="64"/>

@@ -33,6 +33,4 @@ extension MembersViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
         return cell
     }
-    
-    
 }
