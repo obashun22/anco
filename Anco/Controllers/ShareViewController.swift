@@ -7,11 +7,11 @@
 
 import UIKit
 
+private let userDefaults = UserDefaults.standard
+
 class RecordViewController: UIViewController {
 
     @IBOutlet weak var dateTableView: UITableView!
-    
-    var data = [[2020, 12, 4, 36.2], [2020, 12, 3, 36.2], [2020, 12, 2, 36.2]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,46 @@ class RecordViewController: UIViewController {
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dateTableView.reloadData()
+    }
 }
 
 extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
+    // セクション数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // year + month文字列の集合を取ってカウント
+        let data_dic = userDefaults.dictionary(forKey: "records")!
+        let keys_ls = [String](data_dic.keys)
+        var ym_set = Set<String>()
+        for key_str in keys_ls {
+            let key_ls = key_str.components(separatedBy: "/")
+            let ym = key_ls[0] + key_ls[1]
+            ym_set.insert(ym)
+        }
+        return ym_set.count
+    }
+    
+    // sectionごとのtitle
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // year年 + " " + month月文字列で集合を取ってその文字列を返す
+        let data_dic = userDefaults.dictionary(forKey: "records")!
+        let keys_ls = [String](data_dic.keys).sorted { $1 < $0 }
+        var ym_set = Set<String>()
+        for key_str in keys_ls {
+            let key_ls = key_str.components(separatedBy: "/")
+            let ym = "\(key_ls[0])年 \(key_ls[1])月"
+            ym_set.insert(ym)
+        }
+        let ym_ls = [String](ym_set).sorted { $1 < $0 }
+        let title = ym_ls[section]
+        return title
+    }
+    
+    // セクションごとの行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -37,9 +72,10 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! RecordTableViewCell
         cell.selectionStyle = .none
-//        cell.
+        
+//        cell.date
         return cell
     }
 }
