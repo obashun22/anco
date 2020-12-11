@@ -9,6 +9,19 @@ import UIKit
 
 private let userDefaults = UserDefaults.standard
 
+/*
+# 備忘録
+swipeActionからキーボードはよくない
+pickerからtextfieldへの文字入力は編集無効化はoriginalのtextfieldClassで作成するべき
+# ToDo
+navBarの文字色
+体温編集
+体温登録
+今日の体温
+全削除
+広告
+*/
+
 class RecordViewController: UIViewController {
 
     @IBOutlet weak var dateTableView: UITableView!
@@ -20,20 +33,7 @@ class RecordViewController: UIViewController {
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
         
-//        // タップ認識するためのインスタンスを生成
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        tapGesture.cancelsTouchesInView = false
-//        // Viewに追加
-//        view.addGestureRecognizer(tapGesture)
     }
-//    // キーボードを閉じる際の処理
-//    @objc private func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        dateTableView.reloadData()
-//    }
 }
 
 extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
@@ -62,12 +62,6 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     
-    // タップされた時の動作
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let nextCV = self.storyboard!.instantiateViewController(identifier: "MembersViewController")
-//        navigationController?.pushViewController(nextCV, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "削除") { (_, _, handler) in
             var records = userDefaults.array(forKey: "records")! as! [[[Double]]]
@@ -87,7 +81,24 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
             handler(true)
         }
         let edit = UIContextualAction(style: .normal, title: "編集") { (_, _, handler) in
-            
+            let picker = UIPickerView()
+            picker.delegate = self
+            picker.dataSource = self
+            let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+            kbToolBar.barStyle = UIBarStyle.default // スタイルを設定
+            kbToolBar.sizeToFit() // 画面幅に合わせてサイズを変更
+            let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) // スペーサー
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.tappedDoneButton)) // 閉じるボタン
+            kbToolBar.items = [spacer, doneButton]
+            let cell = tableView.cellForRow(at: indexPath) as! RecordTableViewCell
+            cell.tempTextField.inputView = picker
+            cell.tempTextField.inputAccessoryView = kbToolBar
+            cell.tempTextField.isEnabled = true
+            // cellのswipeactionから実行する場合cellのanimationが終わる時にresignされる
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                // 1秒後に実行したい処理
+                cell.tempTextField.becomeFirstResponder()
+            }
             handler(true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [delete, edit])
@@ -102,9 +113,38 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
         let temp = records[indexPath.section][indexPath.row + 1][1]
         cell.dateLabel.text = String(Int(date))
         cell.tempTextField.text = String(temp)
+        cell.tempTextField.tintColor = .clear
         return cell
     }
 }
+
+extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    //閉じるボタンが押されたらキーボードを閉じる
+    @objc func tappedDoneButton (){
+        self.view.endEditing(true)
+    }
+    
+    //PickerViewのコンポーネント(縦）の数を決めるメソッド(実装必須)
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //pickerに表示する行数（横）を返すデータソースメソッド.(実装必須)
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
+    }
+
+    //pickerに表示する値を返すデリゲートメソッド.
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let tmp = [1, 2, 3]
+        return String(tmp[row])
+    }
+
+    //pickerが選択された際に呼ばれるデリゲートメソッド.
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
+}
+
 
 class RecordTableViewCell: UITableViewCell, UITextFieldDelegate {
     
@@ -116,7 +156,7 @@ class RecordTableViewCell: UITableViewCell, UITextFieldDelegate {
         tempTextField.delegate = self
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isEnabled = false
     }
 }
