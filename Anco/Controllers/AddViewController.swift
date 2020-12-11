@@ -122,9 +122,6 @@ class AddViewController: UIViewController {
         let temp = getTemp()
         print(temp)
         
-        userDefaults.setValue([date_s: temp], forKey: "records")
-        // ["2020/12/9": 36.6]
-        
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
@@ -132,29 +129,36 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        userDefaults.setValue([:], forKey: "records")
+        userDefaults.setValue([], forKey: "records")
         generator.prepare()
         
         userDefaults.setValue([
-            "2019/1/8": 35.6,
-            "2020/12/8": 35.6,
-            "2020/12/9": 36.8,
-            "2020/12/10": 37.2,
-            "2020/11/2": 36.2,
-            "2020/10/1": 36.5,
-            "2020/10/12": 36.2,
-        ], forKey: "records")
-        /*
             [
-            "2020", [
-                "12", [
-                    "1", "36.5"
-                ]
-            ]
-        */
-        let data = userDefaults.dictionary(forKey: "records")!
-        print(data)
+                [2020, 12],
+                [2, 35.6],
+                [1, 36.5],
+            ],
+            [
+                [2020, 11],
+                [15, 37.3],
+                [14, 35.6],
+            ],
+            [
+                [2019, 3],
+                [4, 35.6],
+                [2, 35.6],
+                [1, 32.5],
+            ],
+        ], forKey: "records")
     }
+    
+    /*
+    [
+     [[2020, 12], [1, 36.2], [2, 36.5]],
+     [[2020, 11], [3, 36.2], [4, 36.5]],
+    ]
+    */
+    
     
     private func setupViews() {
         

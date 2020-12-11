@@ -19,77 +19,104 @@ class RecordViewController: UIViewController {
         dateTableView.delegate = self
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
+        
+//        // タップ認識するためのインスタンスを生成
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        tapGesture.cancelsTouchesInView = false
+//        // Viewに追加
+//        view.addGestureRecognizer(tapGesture)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        dateTableView.reloadData()
-    }
+//    // キーボードを閉じる際の処理
+//    @objc private func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        dateTableView.reloadData()
+//    }
 }
 
 extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     // セクション数
     func numberOfSections(in tableView: UITableView) -> Int {
-        // year + month文字列の集合を取ってカウント
-        let data_dic = userDefaults.dictionary(forKey: "records")!
-        let keys_ls = [String](data_dic.keys)
-        var ym_set = Set<String>()
-        for key_str in keys_ls {
-            let key_ls = key_str.components(separatedBy: "/")
-            let ym = key_ls[0] + key_ls[1]
-            ym_set.insert(ym)
-        }
-        return ym_set.count
+        let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        return records.count
     }
     
     // sectionごとのtitle
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // year年 + " " + month月文字列で集合を取ってその文字列を返す
-        let data_dic = userDefaults.dictionary(forKey: "records")!
-        let keys_ls = [String](data_dic.keys).sorted { $1 < $0 }
-        var ym_set = Set<String>()
-        for key_str in keys_ls {
-            let key_ls = key_str.components(separatedBy: "/")
-            let ym = "\(key_ls[0])年 \(key_ls[1])月"
-            ym_set.insert(ym)
-        }
-        let ym_ls = [String](ym_set).sorted { $1 < $0 }
-        let title = ym_ls[section]
+        let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        let title = "\(Int(records[section][0][0]))年 \(Int(records[section][0][1]))月"
         return title
     }
     
     // セクションごとの行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        let count = records[section].count - 1
+        return count
     }
     
+    // cellの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
+    // タップされた時の動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let nextCV = self.storyboard!.instantiateViewController(identifier: "MembersViewController")
 //        navigationController?.pushViewController(nextCV, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "削除") { (_, _, handler) in
+            var records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+            records[indexPath.section].remove(at: indexPath.row + 1)
+            print(records[indexPath.section])
+            if records[indexPath.section].count == 1 {
+                records.remove(at: indexPath.section)
+                userDefaults.setValue(records, forKey: "records")
+                let indexSet = NSMutableIndexSet()
+                indexSet.add(indexPath.section)
+                // recordsのsection要素を削除したのでrowではなくsectionを削除
+                tableView.deleteSections(indexSet as IndexSet, with: .fade)
+            } else {
+                userDefaults.setValue(records, forKey: "records")
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            }
+            handler(true)
+        }
+        let edit = UIContextualAction(style: .normal, title: "編集") { (_, _, handler) in
+            
+            handler(true)
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [delete, edit])
+        return configuration
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! RecordTableViewCell
         cell.selectionStyle = .none
-        
-//        cell.date
+        let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        let date = records[indexPath.section][indexPath.row + 1][0]
+        let temp = records[indexPath.section][indexPath.row + 1][1]
+        cell.dateLabel.text = String(Int(date))
+        cell.tempTextField.text = String(temp)
         return cell
     }
 }
 
-class RecordTableViewCell: UITableViewCell {
+class RecordTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempTextField: UITextField!
-    let date = 0
-    let temp = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        dateLabel.text = String(date)
-        tempTextField.text = String(temp)
+        tempTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
 }
