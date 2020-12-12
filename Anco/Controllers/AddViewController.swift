@@ -9,12 +9,12 @@ import UIKit
 
 private let userDefaults = UserDefaults.standard
 
-// [34(0), 35, 36, 37, 38, 39(5), 40(6), 41, 42(8)]
+// Pickerの配列: [34(0), 35, 36, 37, 38, 39(5), 40(6), 41, 42(8)]
 class AddViewController: UIViewController {
     
-    var tenthPlaceValue = 3
     let firstPlaceValues = Array(4...9) + Array(0...2)
     let decimalPlaceValues = Array(0...9)
+    var tenthPlaceValue = 3
     var firstPlaceIndex = 2
     var decimalPlaceIndex = 6
     
@@ -65,6 +65,10 @@ class AddViewController: UIViewController {
     private func increaseFirst() {
         // 42度以上ならインクリメントしない
         if firstPlaceIndex >= 8 { return }
+        if firstPlaceIndex + 1 >= 8 {
+            increaseFirstButton.isEnabled = false
+        }
+        decreaseFirstButton.isEnabled = true
         firstPlaceIndex += 1
         if firstPlaceIndex > 5 {
             tenthPlaceValue = 4
@@ -73,11 +77,19 @@ class AddViewController: UIViewController {
     
     private func increaseDecimal() {
         if decimalPlaceIndex >= 9 { return }
+        if decimalPlaceIndex + 1 >= 9 {
+            increaseDecimalButton.isEnabled = false
+        }
+        decreaseDecimalButton.isEnabled = true
         decimalPlaceIndex += 1
     }
     
     private func decreaseFirst() {
         if firstPlaceIndex <= 0 { return }
+        if firstPlaceIndex - 1 <= 0 {
+            decreaseFirstButton.isEnabled = false
+        }
+        increaseFirstButton.isEnabled = true
         firstPlaceIndex -= 1
         if firstPlaceIndex < 6 {
             tenthPlaceValue = 3
@@ -86,6 +98,10 @@ class AddViewController: UIViewController {
     
     private func decreaseDecimal() {
         if decimalPlaceIndex <= 0 { return }
+        if decimalPlaceIndex - 1 <= 0 {
+            decreaseDecimalButton.isEnabled = false
+        }
+        increaseDecimalButton.isEnabled = true
         decimalPlaceIndex -= 1
     }
     
@@ -189,7 +205,6 @@ class AddViewController: UIViewController {
     
     
     private func setupViews() {
-        
         // 丸角処理
         integerView.layer.cornerRadius = integerView.frame.height / 2
         floorView.layer.cornerRadius = floorView.frame.height / 2
@@ -207,6 +222,8 @@ class AddViewController: UIViewController {
         floorView.layer.shadowColor = UIColor.black.cgColor
         floorView.layer.shadowOpacity = shadowOpacity
         floorView.layer.shadowRadius = shadowRadius
+        
+        initTempLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -230,6 +247,12 @@ class AddViewController: UIViewController {
                 todayTempLabel.text = todayTempText + String(data[1]) + "℃"
             }
         }
+    }
+    
+    private func initTempLabel() {
+        tensPlaceLabel.text = String(tenthPlaceValue)
+        firstPlaceLabel.text = String(firstPlaceValues[firstPlaceIndex])
+        decimalLabel.text = String(decimalPlaceValues[decimalPlaceIndex])
     }
 }
 

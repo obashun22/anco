@@ -25,9 +25,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQM-0y-gHn">
                                         <rect key="frame" x="78.5" y="0.0" width="200" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-IP-aGz">
-                                                <rect key="frame" x="146" y="0.0" width="35" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-IP-aGz">
+                                                <rect key="frame" x="145" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uEF-IP-aGz" secondAttribute="height" multiplier="1:1" id="mnI-jO-ORu"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
@@ -37,9 +39,11 @@
                                                     <action selector="tappedIncreaseDecimal:" destination="hK2-C9-bfU" eventType="touchUpInside" id="zXM-yO-jSD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WP1-GM-19Q">
-                                                <rect key="frame" x="22" y="0.0" width="35" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WP1-GM-19Q">
+                                                <rect key="frame" x="20" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="WP1-GM-19Q" secondAttribute="height" multiplier="1:1" id="rAv-jg-iLt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
@@ -52,8 +56,14 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="uEF-IP-aGz" secondAttribute="bottom" id="9Fa-EU-qBd"/>
                                             <constraint firstAttribute="height" constant="40" id="9Ts-g6-XTi"/>
+                                            <constraint firstItem="WP1-GM-19Q" firstAttribute="leading" secondItem="nQM-0y-gHn" secondAttribute="leading" constant="20" id="B3v-Vg-9By"/>
+                                            <constraint firstAttribute="trailing" secondItem="uEF-IP-aGz" secondAttribute="trailing" constant="15" id="Ech-zy-H7f"/>
+                                            <constraint firstItem="uEF-IP-aGz" firstAttribute="top" secondItem="nQM-0y-gHn" secondAttribute="top" id="Ic0-6P-hoO"/>
                                             <constraint firstAttribute="width" constant="200" id="ZTu-sQ-8kY"/>
+                                            <constraint firstItem="WP1-GM-19Q" firstAttribute="top" secondItem="nQM-0y-gHn" secondAttribute="top" id="un9-iY-Vt6"/>
+                                            <constraint firstAttribute="bottom" secondItem="WP1-GM-19Q" secondAttribute="bottom" id="xGg-jd-zh0"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="fK1-aX-gnR">
@@ -117,9 +127,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-ES-fpu">
                                         <rect key="frame" x="78.5" y="158" width="200" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY0-MB-uS5">
-                                                <rect key="frame" x="22" y="0.0" width="35" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY0-MB-uS5">
+                                                <rect key="frame" x="20" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dY0-MB-uS5" secondAttribute="height" multiplier="1:1" id="qMh-vQ-nER"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
@@ -129,9 +141,11 @@
                                                     <action selector="tappedDecreaseFirst:" destination="hK2-C9-bfU" eventType="touchUpInside" id="jgW-qJ-k7U"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajr-Jp-nM7">
-                                                <rect key="frame" x="147" y="0.0" width="35" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajr-Jp-nM7">
+                                                <rect key="frame" x="145" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Ajr-Jp-nM7" secondAttribute="height" multiplier="1:1" id="Fa9-mI-tNo"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
@@ -144,8 +158,14 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="dY0-MB-uS5" firstAttribute="top" secondItem="M3O-ES-fpu" secondAttribute="top" id="Chk-is-rhJ"/>
+                                            <constraint firstItem="Ajr-Jp-nM7" firstAttribute="top" secondItem="M3O-ES-fpu" secondAttribute="top" id="GQW-iM-TI3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ajr-Jp-nM7" secondAttribute="trailing" constant="15" id="HsK-Hy-IQ2"/>
                                             <constraint firstAttribute="width" constant="200" id="MuN-lc-elN"/>
+                                            <constraint firstAttribute="bottom" secondItem="dY0-MB-uS5" secondAttribute="bottom" id="dLG-wU-lkY"/>
                                             <constraint firstAttribute="height" constant="40" id="j6w-cp-qbO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ajr-Jp-nM7" secondAttribute="bottom" id="mvU-q0-K9O"/>
+                                            <constraint firstItem="dY0-MB-uS5" firstAttribute="leading" secondItem="M3O-ES-fpu" secondAttribute="leading" constant="20" id="olu-0p-Xax"/>
                                         </constraints>
                                     </view>
                                 </subviews>

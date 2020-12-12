@@ -14,7 +14,6 @@ private let userDefaults = UserDefaults.standard
 swipeActionからキーボードはよくない
 pickerからtextfieldへの文字入力は編集無効化はoriginalのtextfieldClassで作成するべき
 # ToDo
-体温編集完了押したら保存更新
 広告
 */
 
