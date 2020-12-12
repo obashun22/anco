@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +29,7 @@
                                                 <rect key="frame" x="146" y="0.0" width="35" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <color key="tintColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus" renderingMode="template"/>
                                                 </state>
@@ -40,7 +41,7 @@
                                                 <rect key="frame" x="22" y="0.0" width="35" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <color key="tintColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="plus" renderingMode="template"/>
                                                 </state>
@@ -120,7 +121,7 @@
                                                 <rect key="frame" x="22" y="0.0" width="35" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <color key="tintColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="minus" renderingMode="template"/>
                                                 </state>
@@ -132,7 +133,7 @@
                                                 <rect key="frame" x="147" y="0.0" width="35" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <color key="tintColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="Purple"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="minus" renderingMode="template"/>
                                                 </state>
@@ -150,8 +151,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isF-fE-mQ7">
-                                <rect key="frame" x="57" y="723" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.70650386809999999" green="0.53104996680000005" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="57" y="713" width="300" height="50"/>
+                                <color key="backgroundColor" name="Purple"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="G8d-uA-Dep"/>
                                     <constraint firstAttribute="height" constant="50" id="bXU-ES-gwE"/>
@@ -163,14 +164,22 @@
                                     <action selector="tappedAddButton:" destination="hK2-C9-bfU" eventType="touchUpInside" id="tKU-JH-MYA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の体温: 未記録" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYd-AN-lDU">
+                                <rect key="frame" x="133" y="168" width="148" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="up1-bX-ygi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vYd-AN-lDU" firstAttribute="top" secondItem="up1-bX-ygi" secondAttribute="top" constant="80" id="B8f-Vf-mmh"/>
+                            <constraint firstItem="vYd-AN-lDU" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="ELN-ca-Xj9"/>
                             <constraint firstItem="isF-fE-mQ7" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="HRq-KV-4Ch"/>
                             <constraint firstItem="aLy-JE-a3F" firstAttribute="centerY" secondItem="nl1-aE-nVO" secondAttribute="centerY" constant="-25" id="pu9-uY-c1u"/>
                             <constraint firstItem="aLy-JE-a3F" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="qBu-7W-2JR"/>
-                            <constraint firstItem="up1-bX-ygi" firstAttribute="bottom" secondItem="isF-fE-mQ7" secondAttribute="bottom" constant="40" id="qsb-EV-Y2E"/>
+                            <constraint firstItem="up1-bX-ygi" firstAttribute="bottom" secondItem="isF-fE-mQ7" secondAttribute="bottom" constant="50" id="qsb-EV-Y2E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Anco" id="TJv-hv-k3D"/>
@@ -185,6 +194,7 @@
                         <outlet property="increaseFirstButton" destination="WP1-GM-19Q" id="mpk-L2-A06"/>
                         <outlet property="integerView" destination="Nxe-Ou-B2H" id="Y06-Qb-1tX"/>
                         <outlet property="tensPlaceLabel" destination="8iv-vv-2dA" id="5oS-n1-zdN"/>
+                        <outlet property="todayTempLabel" destination="vYd-AN-lDU" id="RG6-Ls-tOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPR-X3-Mpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,21 +232,32 @@
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36.4" placeholder="36.6" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqd-Dh-zDl">
-                                                    <rect key="frame" x="287" y="22.5" width="100" height="25.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="z9f-5q-QNV"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C7T-wq-iXI">
+                                                    <rect key="frame" x="256" y="22.5" width="131" height="25.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36.4" placeholder="36.6" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqd-Dh-zDl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="25.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="z9f-5q-QNV"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="℃" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nKE-c3-Y6p">
+                                                            <rect key="frame" x="108" y="0.0" width="23" height="25.5"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tht-Uz-fcV" firstAttribute="bottom" secondItem="uUY-VA-Cdy" secondAttribute="bottom" constant="-5" id="3oJ-3g-zRj"/>
-                                                <constraint firstItem="Wqd-Dh-zDl" firstAttribute="centerY" secondItem="nuo-XY-fDb" secondAttribute="centerY" id="JaY-Y9-byb"/>
+                                                <constraint firstAttribute="trailing" secondItem="C7T-wq-iXI" secondAttribute="trailing" constant="27" id="HMU-6l-Bd2"/>
+                                                <constraint firstItem="C7T-wq-iXI" firstAttribute="centerY" secondItem="nuo-XY-fDb" secondAttribute="centerY" id="JGA-v4-UnK"/>
                                                 <constraint firstItem="tht-Uz-fcV" firstAttribute="leading" secondItem="uUY-VA-Cdy" secondAttribute="trailing" constant="10" id="YU3-cc-YpF"/>
                                                 <constraint firstItem="uUY-VA-Cdy" firstAttribute="leading" secondItem="nuo-XY-fDb" secondAttribute="leading" constant="27.5" id="afA-yN-KrW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Wqd-Dh-zDl" secondAttribute="trailing" constant="27" id="bWG-Sd-ChW"/>
                                                 <constraint firstItem="uUY-VA-Cdy" firstAttribute="centerY" secondItem="nuo-XY-fDb" secondAttribute="centerY" id="dtj-zr-i9c"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -259,6 +280,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="記録" id="VNU-vu-yM2">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="bjh-Qg-iYC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Zj9-XI-7iR">
+                            <color key="tintColor" name="Purple"/>
+                            <connections>
+                                <action selector="tappedRemoveAllButton:" destination="2NH-as-t4Z" id="D4o-iN-zg2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateTableView" destination="TqI-kj-x5j" id="isc-pG-kpV"/>
@@ -314,7 +341,7 @@
         <scene sceneID="8T2-fl-Jao">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4MN-TT-ilK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.2" catalog="system" id="cgk-0u-iBu"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="cgk-0u-iBu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oKk-9G-YMI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -388,10 +415,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="minus" width="64" height="64"/>
-        <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="plus" width="64" height="64"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <namedColor name="Purple">
+            <color red="0.73725490196078436" green="0.51764705882352935" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

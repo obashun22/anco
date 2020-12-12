@@ -9,16 +9,18 @@ import UIKit
 
 private let userDefaults = UserDefaults.standard
 
+// [34(0), 35, 36, 37, 38, 39(5), 40(6), 41, 42(8)]
 class AddViewController: UIViewController {
     
     var tenthPlaceValue = 3
-    let firstPlaceValues = Array(0...9) + Array(0...2)
+    let firstPlaceValues = Array(4...9) + Array(0...2)
     let decimalPlaceValues = Array(0...9)
-    var firstPlaceIndex = 6
+    var firstPlaceIndex = 2
     var decimalPlaceIndex = 6
     
     private let generator = UIImpactFeedbackGenerator(style: .rigid)
     
+    @IBOutlet weak var todayTempLabel: UILabel!
     @IBOutlet weak var integerView: UIView!
     @IBOutlet weak var floorView: UIView!
     
@@ -62,9 +64,9 @@ class AddViewController: UIViewController {
     
     private func increaseFirst() {
         // 42度以上ならインクリメントしない
-        if firstPlaceIndex >= 12 { return }
+        if firstPlaceIndex >= 8 { return }
         firstPlaceIndex += 1
-        if firstPlaceIndex > 9 {
+        if firstPlaceIndex > 5 {
             tenthPlaceValue = 4
         }
     }
@@ -77,7 +79,7 @@ class AddViewController: UIViewController {
     private func decreaseFirst() {
         if firstPlaceIndex <= 0 { return }
         firstPlaceIndex -= 1
-        if firstPlaceIndex < 10 {
+        if firstPlaceIndex < 6 {
             tenthPlaceValue = 3
         }
     }
@@ -100,10 +102,10 @@ class AddViewController: UIViewController {
         print(getTemp())
     }
     
-    private func getTemp() -> Float {
-        let tenthPlace = firstPlaceIndex < 10 ? 3 : 4
+    private func getTemp() -> Double {
+        let tenthPlace = firstPlaceIndex < 6 ? 3 : 4
         let temp_s = "\(tenthPlace)\(firstPlaceValues[firstPlaceIndex]).\(decimalPlaceValues[decimalPlaceIndex])"
-        let temp: Float = Float(temp_s)!
+        let temp: Double = Double(temp_s)!
         return temp
     }
     
@@ -113,14 +115,40 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     @IBAction func tappedAddButton(_ sender: Any) {
-        let date = Date()
+        let today = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy/MM/dd"
-        let date_s = format.string(from: date)
-        print(date_s)
-        
+        let date_ls = format.string(from: today).components(separatedBy: "/")
+        let year = Double(date_ls[0])!
+        let month = Double(date_ls[1])!
+        let date = Double(date_ls[2])!
         let temp = getTemp()
-        print(temp)
+        print(year, month, date, temp)
+        
+        var records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        if records.count < 1 {
+            records.insert([[year, month], [date, temp]], at: 0)
+        } else {
+            if records[0][0] == [year, month] {
+                var found = false
+                for (index, data) in records[0].enumerated() {
+                    if data[0] == date {
+                        records[0].remove(at: index)
+                        records[0].insert([date, temp], at: index)
+                        found = true
+                        break
+                    }
+                }
+                if !found {
+                    records[0].insert([date, temp], at: 1)
+                }
+            } else {
+                records.insert([[year, month], [date, temp]], at: 0)
+            }
+        }
+        userDefaults.setValue(records, forKey: "records")
+        print(records)
+        updateTodayTempLabel()
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
@@ -179,9 +207,29 @@ class AddViewController: UIViewController {
         floorView.layer.shadowColor = UIColor.black.cgColor
         floorView.layer.shadowOpacity = shadowOpacity
         floorView.layer.shadowRadius = shadowRadius
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 画面読み込みとRecords画面で編集削除したとき
+        updateTodayTempLabel()
     }
 
-
+    private func updateTodayTempLabel() {
+        let todayTempText = "今日の体温: "
+        todayTempLabel.text = todayTempText + "未記録"
+        
+        let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        let today = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd"
+        let date = Double(format.string(from: today))!
+        if records.count < 1 { return }
+        for data in records[0] {
+            if data[0] == date {
+                todayTempLabel.text = todayTempText + String(data[1]) + "℃"
+            }
+        }
+    }
 }
 

@@ -14,17 +14,27 @@ private let userDefaults = UserDefaults.standard
 swipeActionからキーボードはよくない
 pickerからtextfieldへの文字入力は編集無効化はoriginalのtextfieldClassで作成するべき
 # ToDo
-navBarの文字色
-体温編集
-体温登録
-今日の体温
-全削除
+体温編集完了押したら保存更新
 広告
 */
 
 class RecordViewController: UIViewController {
+    
+    private let intPlace = Array(34...42)
+    private let floatPlace = Array(0...9)
 
     @IBOutlet weak var dateTableView: UITableView!
+    @IBAction func tappedRemoveAllButton(_ sender: Any) {
+        let alert = UIAlertController(title: "すべての記録を削除", message: "すべての記録を削除しますか？", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "削除", style: .default) { (action) in
+            userDefaults.setValue([], forKey: "records")
+            self.dateTableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +43,11 @@ class RecordViewController: UIViewController {
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dateTableView.reloadData()
     }
 }
 
@@ -84,12 +99,24 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
             let picker = UIPickerView()
             picker.delegate = self
             picker.dataSource = self
+            let records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+            let temp = records[indexPath.section][indexPath.row + 1][1]
+            let temp_ls = String(temp).components(separatedBy: ".")
+            let intValue = Int(temp_ls[0])!
+            let floatValue = Int(temp_ls[1])!
+            let intIndex = Array(self.intPlace.reversed()).firstIndex(of: intValue)
+            let floatIndex = Array(self.floatPlace.reversed()).firstIndex(of: floatValue)
+            if let intIndex = intIndex, let floatIndex = floatIndex {
+                picker.selectRow(intIndex, inComponent: 0, animated: false)
+                picker.selectRow(floatIndex, inComponent: 1, animated: false)
+            }
             let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
             kbToolBar.barStyle = UIBarStyle.default // スタイルを設定
             kbToolBar.sizeToFit() // 画面幅に合わせてサイズを変更
             let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) // スペーサー
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.tappedDoneButton)) // 閉じるボタン
-            kbToolBar.items = [spacer, doneButton]
+            let doneButton = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(self.tappedDoneButton)) // 閉じるボタン
+            let cancelButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(self.tappedCancelButton)) // 閉じるボタン
+            kbToolBar.items = [cancelButton, spacer, doneButton]
             let cell = tableView.cellForRow(at: indexPath) as! RecordTableViewCell
             cell.tempTextField.inputView = picker
             cell.tempTextField.inputAccessoryView = kbToolBar
@@ -112,36 +139,50 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
         let date = records[indexPath.section][indexPath.row + 1][0]
         let temp = records[indexPath.section][indexPath.row + 1][1]
         cell.dateLabel.text = String(Int(date))
-        cell.tempTextField.text = String(temp)
+        cell.tempTextField.text = String(temp) + ""
         cell.tempTextField.tintColor = .clear
         return cell
     }
 }
 
 extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     //閉じるボタンが押されたらキーボードを閉じる
-    @objc func tappedDoneButton (){
+    @objc func tappedDoneButton() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func tappedCancelButton() {
         self.view.endEditing(true)
     }
     
     //PickerViewのコンポーネント(縦）の数を決めるメソッド(実装必須)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     //pickerに表示する行数（横）を返すデータソースメソッド.(実装必須)
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        switch component {
+        case 0:
+            return intPlace.count
+        case 1:
+            return floatPlace.count
+        default:
+            return 0
+        }
     }
 
     //pickerに表示する値を返すデリゲートメソッド.
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let tmp = [1, 2, 3]
-        return String(tmp[row])
-    }
-
-    //pickerが選択された際に呼ばれるデリゲートメソッド.
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            return String(intPlace.reversed()[row])
+        case 1:
+            return "." + String(floatPlace.reversed()[row])
+        default:
+            return "0"
+        }
     }
 }
 
