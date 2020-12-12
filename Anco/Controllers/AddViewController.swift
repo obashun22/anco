@@ -18,7 +18,7 @@ class AddViewController: UIViewController {
     var firstPlaceIndex = 2
     var decimalPlaceIndex = 6
     
-    private let generator = UIImpactFeedbackGenerator(style: .rigid)
+    private let generatorMedium = UIImpactFeedbackGenerator(style: .medium)
     
     @IBOutlet weak var todayTempLabel: UILabel!
     @IBOutlet weak var integerView: UIView!
@@ -110,7 +110,7 @@ class AddViewController: UIViewController {
     }
     
     private func vibe() {
-        generator.impactOccurred()
+        generatorMedium.impactOccurred()
     }
     
     @IBOutlet weak var addButton: UIButton!
@@ -158,7 +158,7 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         userDefaults.setValue([], forKey: "records")
-        generator.prepare()
+        generatorMedium.prepare()
         
         userDefaults.setValue([
             [

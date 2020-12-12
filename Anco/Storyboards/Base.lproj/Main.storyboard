@@ -420,7 +420,7 @@
         <image name="plus" width="64" height="64"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="Purple">
-            <color red="0.73725490196078436" green="0.51764705882352935" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.7369999885559082" green="0.51800000667572021" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

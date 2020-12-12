@@ -22,6 +22,14 @@ class RecordViewController: UIViewController {
     
     private let intPlace = Array(34...42)
     private let floatPlace = Array(0...9)
+    // 編集を押した際にoriDataでセルのtemp(=int+float)とindex情報を一時保管して完了で結合して保存
+    struct originalData {
+        var section: Int?
+        var row: Int?
+        var int: Int?
+        var float: Int?
+    }
+    private var oriData = originalData()
 
     @IBOutlet weak var dateTableView: UITableView!
     @IBAction func tappedRemoveAllButton(_ sender: Any) {
@@ -42,7 +50,6 @@ class RecordViewController: UIViewController {
         dateTableView.delegate = self
         dateTableView.dataSource = self
         dateTableView.tableFooterView = UIView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +111,10 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
             let temp_ls = String(temp).components(separatedBy: ".")
             let intValue = Int(temp_ls[0])!
             let floatValue = Int(temp_ls[1])!
+            self.oriData.section = indexPath.section
+            self.oriData.row = indexPath.row + 1
+            self.oriData.int = intValue
+            self.oriData.float = floatValue
             let intIndex = Array(self.intPlace.reversed()).firstIndex(of: intValue)
             let floatIndex = Array(self.floatPlace.reversed()).firstIndex(of: floatValue)
             if let intIndex = intIndex, let floatIndex = floatIndex {
@@ -139,7 +150,7 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
         let date = records[indexPath.section][indexPath.row + 1][0]
         let temp = records[indexPath.section][indexPath.row + 1][1]
         cell.dateLabel.text = String(Int(date))
-        cell.tempTextField.text = String(temp) + ""
+        cell.tempTextField.text = String(temp)
         cell.tempTextField.tintColor = .clear
         return cell
     }
@@ -149,6 +160,13 @@ extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     //閉じるボタンが押されたらキーボードを閉じる
     @objc func tappedDoneButton() {
+        var records = userDefaults.array(forKey: "records")! as! [[[Double]]]
+        if let section = oriData.section, let row = oriData.row, let int = oriData.int, let float = oriData.float {
+            let temp = Double(int) + Double(float) / 10
+            records[section][row][1] = temp
+        }
+        userDefaults.setValue(records, forKey: "records")
+        dateTableView.reloadData()
         self.view.endEditing(true)
     }
     
@@ -182,6 +200,17 @@ extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return "." + String(floatPlace.reversed()[row])
         default:
             return "0"
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            oriData.int = intPlace.reversed()[row]
+        case 1:
+            oriData.float = floatPlace.reversed()[row]
+        default:
+            break
         }
     }
 }
