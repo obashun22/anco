@@ -17,6 +17,7 @@
 		C0240F8C255A8ECC006B4D85 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F8B255A8ECC006B4D85 /* ShareViewController.swift */; };
 		C0240F91255A9465006B4D85 /* ShareDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F90255A9465006B4D85 /* ShareDateTableViewCell.swift */; };
 		C0240F97255AABFA006B4D85 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F96255AABF9006B4D85 /* MembersViewController.swift */; };
+		C077EAC52587C479004F5367 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C077EAC42587C479004F5367 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C0240F8B255A8ECC006B4D85 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C0240F90255A9465006B4D85 /* ShareDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDateTableViewCell.swift; sourceTree = "<group>"; };
 		C0240F96255AABF9006B4D85 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		C077EAC42587C479004F5367 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				C0240F81255A302B006B4D85 /* Storyboards */,
 				C0240F73255A2BBC006B4D85 /* Assets.xcassets */,
 				C0240F78255A2BBC006B4D85 /* Info.plist */,
+				C077EAC42587C479004F5367 /* GoogleService-Info.plist */,
 			);
 			path = Anco;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			files = (
 				C0240F77255A2BBC006B4D85 /* LaunchScreen.storyboard in Resources */,
 				C0240F74255A2BBC006B4D85 /* Assets.xcassets in Resources */,
+				C077EAC52587C479004F5367 /* GoogleService-Info.plist in Resources */,
 				C0240F72255A2BB5006B4D85 /* Main.storyboard in Resources */,
 				C0240F84255A30CD006B4D85 /* Login.storyboard in Resources */,
 			);

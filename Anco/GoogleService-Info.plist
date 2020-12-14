@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>969874786096-c8nofgggdfgj8k7qgtlk9218me335up1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.969874786096-c8nofgggdfgj8k7qgtlk9218me335up1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDTunHo3V_DC5wquI2ggUzq12j0vHh2Nvw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>969874786096</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>tmy.jack.Anco</string>
+	<key>PROJECT_ID</key>
+	<string>anco-4bdff</string>
+	<key>STORAGE_BUCKET</key>
+	<string>anco-4bdff.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:969874786096:ios:529ec3805e248898f6aaf5</string>
+</dict>
+</plist>
