@@ -62,5 +62,11 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-4985853544356101~5565619468</string>
+	<key>AdMob Unit ID Debug</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AdMob Unit ID Release</key>
+	<string>ca-app-pub-4985853544356101/6641245024</string>
 </dict>
 </plist>

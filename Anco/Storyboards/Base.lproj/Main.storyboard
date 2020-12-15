@@ -185,18 +185,28 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の体温: 未記録" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYd-AN-lDU">
-                                <rect key="frame" x="133" y="168" width="148" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="129" y="180" width="156.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-5i-NzH" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="88" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gsp-VB-CQY"/>
+                                    <constraint firstAttribute="width" constant="320" id="POF-YL-ecS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="up1-bX-ygi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vYd-AN-lDU" firstAttribute="top" secondItem="up1-bX-ygi" secondAttribute="top" constant="80" id="B8f-Vf-mmh"/>
+                            <constraint firstItem="vYd-AN-lDU" firstAttribute="top" secondItem="MXb-5i-NzH" secondAttribute="bottom" constant="42" id="38a-KH-yIm"/>
+                            <constraint firstItem="MXb-5i-NzH" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="84c-OU-SZn"/>
                             <constraint firstItem="vYd-AN-lDU" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="ELN-ca-Xj9"/>
                             <constraint firstItem="isF-fE-mQ7" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="HRq-KV-4Ch"/>
+                            <constraint firstItem="MXb-5i-NzH" firstAttribute="top" secondItem="up1-bX-ygi" secondAttribute="top" id="aQJ-Gb-6vc"/>
                             <constraint firstItem="aLy-JE-a3F" firstAttribute="centerY" secondItem="nl1-aE-nVO" secondAttribute="centerY" constant="-25" id="pu9-uY-c1u"/>
                             <constraint firstItem="aLy-JE-a3F" firstAttribute="centerX" secondItem="nl1-aE-nVO" secondAttribute="centerX" id="qBu-7W-2JR"/>
                             <constraint firstItem="up1-bX-ygi" firstAttribute="bottom" secondItem="isF-fE-mQ7" secondAttribute="bottom" constant="50" id="qsb-EV-Y2E"/>
@@ -205,6 +215,7 @@
                     <navigationItem key="navigationItem" title="Anco" id="TJv-hv-k3D"/>
                     <connections>
                         <outlet property="addButton" destination="isF-fE-mQ7" id="WfO-3o-KkG"/>
+                        <outlet property="bannerView" destination="MXb-5i-NzH" id="Djy-m1-epu"/>
                         <outlet property="decimalLabel" destination="BBQ-Cu-2kb" id="lQU-oK-xFH"/>
                         <outlet property="decreaseDecimalButton" destination="Ajr-Jp-nM7" id="jD8-uu-7GK"/>
                         <outlet property="decreaseFirstButton" destination="dY0-MB-uS5" id="4hs-gt-ukl"/>
@@ -300,10 +311,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="記録" id="VNU-vu-yM2">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="bjh-Qg-iYC"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Zj9-XI-7iR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="Zj9-XI-7iR">
                             <color key="tintColor" name="Purple"/>
                             <connections>
                                 <action selector="tappedRemoveAllButton:" destination="2NH-as-t4Z" id="D4o-iN-zg2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="a" image="doc.on.doc" catalog="system" id="l7k-qI-WWQ">
+                            <color key="tintColor" name="Purple"/>
+                            <connections>
+                                <action selector="tappedCopyButton:" destination="2NH-as-t4Z" id="GDw-Pt-iYB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -435,6 +452,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="minus" width="64" height="64"/>
         <image name="plus" width="64" height="64"/>

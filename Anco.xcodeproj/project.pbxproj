@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98D025C7F35F3EAF86587537 /* Pods_Anco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9657D848EF326F457C822BF0 /* Pods_Anco.framework */; };
 		C0240F6B255A2BB5006B4D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F6A255A2BB5006B4D85 /* AppDelegate.swift */; };
 		C0240F6D255A2BB5006B4D85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F6C255A2BB5006B4D85 /* SceneDelegate.swift */; };
 		C0240F6F255A2BB5006B4D85 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0240F6E255A2BB5006B4D85 /* AddViewController.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77357095F472FFAB5E9ACD8F /* Pods-Anco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anco.debug.xcconfig"; path = "Target Support Files/Pods-Anco/Pods-Anco.debug.xcconfig"; sourceTree = "<group>"; };
+		9657D848EF326F457C822BF0 /* Pods_Anco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0240F67255A2BB5006B4D85 /* Anco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0240F6A255A2BB5006B4D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0240F6C255A2BB5006B4D85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		C0240F90255A9465006B4D85 /* ShareDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDateTableViewCell.swift; sourceTree = "<group>"; };
 		C0240F96255AABF9006B4D85 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		C077EAC42587C479004F5367 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F77A10018047F199AD4BC785 /* Pods-Anco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anco.release.xcconfig"; path = "Target Support Files/Pods-Anco/Pods-Anco.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D025C7F35F3EAF86587537 /* Pods_Anco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B361B075E6B51EC654C16599 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9657D848EF326F457C822BF0 /* Pods_Anco.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4308B36139614593353C030 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77357095F472FFAB5E9ACD8F /* Pods-Anco.debug.xcconfig */,
+				F77A10018047F199AD4BC785 /* Pods-Anco.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C0240F5E255A2BB4006B4D85 = {
 			isa = PBXGroup;
 			children = (
 				C0240F69255A2BB5006B4D85 /* Anco */,
 				C0240F68255A2BB5006B4D85 /* Products */,
+				B4308B36139614593353C030 /* Pods */,
+				B361B075E6B51EC654C16599 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,9 +146,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0240F7B255A2BBC006B4D85 /* Build configuration list for PBXNativeTarget "Anco" */;
 			buildPhases = (
+				7DC7D2B7ED7B505B3BBF3AB3 /* [CP] Check Pods Manifest.lock */,
+				E7AA79D552DBC31D594C4EF9 /* [CP] Prepare Artifacts */,
 				C0240F63255A2BB4006B4D85 /* Sources */,
 				C0240F64255A2BB4006B4D85 /* Frameworks */,
 				C0240F65255A2BB4006B4D85 /* Resources */,
+				843E784A31227AC682F0D784 /* [CP] Embed Pods Frameworks */,
+				476BE49B8C1BC094D400909B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,6 +209,82 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		476BE49B8C1BC094D400909B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DC7D2B7ED7B505B3BBF3AB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Anco-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		843E784A31227AC682F0D784 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7AA79D552DBC31D594C4EF9 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Anco/Pods-Anco-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0240F63255A2BB4006B4D85 /* Sources */ = {
@@ -335,6 +440,7 @@
 		};
 		C0240F7C255A2BBC006B4D85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77357095F472FFAB5E9ACD8F /* Pods-Anco.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -355,6 +461,7 @@
 		};
 		C0240F7D255A2BBC006B4D85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F77A10018047F199AD4BC785 /* Pods-Anco.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
